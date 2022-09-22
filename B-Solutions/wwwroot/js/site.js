@@ -8,6 +8,7 @@ $(document).ready(function () {
     getDatatable('#arquivosTable');
     getDatatable('#empresasTable');
     getDatatable('#engenheirosTable');
+    getDatatable('#tiposTable');
 });
 
 function getDatatable(id) {
@@ -40,8 +41,4 @@ function getDatatable(id) {
         }
     });
 }
-
-
-$(document).on('click', '.btn-adicionar', function () {
-    boot
-})    
+  

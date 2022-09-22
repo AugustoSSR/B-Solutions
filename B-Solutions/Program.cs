@@ -28,6 +28,7 @@ namespace B_Solutions
             builder.Services.AddScoped<IEmpresasRepositorio, EmpresasRepositorio>();
             builder.Services.AddScoped<IArquivoRepositorio, ArquivoRepositorio>();
             builder.Services.AddScoped<IEngenheirosRepositorio, EngenheirosRepositorio>();
+            builder.Services.AddScoped<ITiposRepositorio, TiposRepositorio>();
             builder.Services.AddScoped<ISessao, Sessao>();
             builder.Services.AddScoped<IEmail, Email>();
             builder.Services.AddSession(o =>

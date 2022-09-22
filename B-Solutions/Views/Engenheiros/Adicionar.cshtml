@@ -1,0 +1,42 @@
+﻿@model EngenheirosModel
+@{
+    ViewData["Title"] = "Adicionar empresa";
+}
+
+<div class="text-center">
+
+    <h1>Formulario de cadastro de empresas.</h1>
+    <p>Preencha todos os campos obrigatorios para inserir uma empresa.</p>
+    <br />
+</div>
+
+<form asp-controller="Engenheiros" asp-action="Adicionar" method="post" class="row g-3">
+
+    <div class="row">
+        <div class="col-md-6">
+            <labal class="form-label">Nome completo</labal>
+            <input type="text" asp-for="Nome" class="form-control">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">N° CPF</labal>
+            <input type="text" data-mask="000.000.000-00" asp-for="CPF" class="form-control" maxlength="14">
+            @Html.ValidationMessageFor(x => x.CPF)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">N° CREA</labal>
+            <input type="text" asp-for="CREA" class="form-control">
+            @Html.ValidationMessageFor(x => x.CREA)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">E-mail</labal>
+            <input type="text" asp-for="Email" class="form-control">
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+    <br />
+    <div class="d-grid gap-2">
+        <a class="btn btn-danger" asp-controller="Engenheiros" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+    </div>
+</form>

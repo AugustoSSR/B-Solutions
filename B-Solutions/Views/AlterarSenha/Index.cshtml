@@ -1,0 +1,36 @@
+﻿@using B_Solutions.Enums
+@model AlterarSenhaModel;
+@{
+    ViewData["Title"] = "Alterar senha do Usuario";
+}
+
+<div class="text-center">
+
+    <h1>Alterar senha do usuario</h1>
+    <p>Informe todos os dados para alterar sua senha.</p>
+    <br />
+</div>
+
+<form asp-controller="AlterarSenha" asp-action="Alterar" method="post">
+
+    <div class="col mb-3">
+        <labal class="form-label">Senha atual</labal>
+        <input type="password" asp-for="SenhaAtual" class="form-control">
+        @Html.ValidationMessageFor(x => x.SenhaAtual)
+    </div>
+    <div class="col mb-3">
+        <labal class="form-label">Nova senha</labal>
+        <input type="password" asp-for="NovaSenha" class="form-control">
+        @Html.ValidationMessageFor(x => x.NovaSenha)
+    </div>
+    <div class="col mb-3">
+        <labal class="form-label">Confirmar senha</labal>
+        <input type="password" asp-for="confirmarNovaSenha" class="form-control">
+        @Html.ValidationMessageFor(x => x.confirmarNovaSenha)
+    </div>
+    <br />
+    <div class="d-grid gap-2">
+        <a class="btn btn-danger" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-block btn-success">Atualizar</button>
+    </div>
+</form>

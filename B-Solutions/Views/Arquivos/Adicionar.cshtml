@@ -1,0 +1,42 @@
+﻿@model ArquivosModel
+@{
+    ViewData["Title"] = "Adicionar empresa";
+}
+
+<div class="text-center">
+
+    <h1>Formulario de cadastro de empresas.</h1>
+    <p>Preencha todos os campos obrigatorios para inserir uma empresa.</p>
+    <br />
+</div>
+
+<form asp-controller="Arquivos" asp-action="Adicionar" method="post" class="row g-3">
+
+    <div class="row">
+        <div class="col-md-6">
+            <labal class="form-label">Nome do projeto</labal>
+            <input type="text" asp-for="Nome" class="form-control">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Nome empresa</labal>
+            <input type="text" asp-for="Empresa" class="form-control">
+            @Html.ValidationMessageFor(x => x.Empresa)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Localidade</labal>
+            <input type="text" asp-for="Localidade" class="form-control">
+            @Html.ValidationMessageFor(x => x.Localidade)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Numero caderno</labal>
+            <input type="text" asp-for="numeroCaderno" class="form-control">
+            @Html.ValidationMessageFor(x => x.numeroCaderno)
+        </div>
+    </div>
+    <br />
+    <div class="d-grid gap-2">
+        <a class="btn btn-danger" asp-controller="Arquivos" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+    </div>
+</form>

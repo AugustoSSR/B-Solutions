@@ -1,0 +1,82 @@
+﻿@model EmpresasModel
+@{
+    ViewData["Title"] = "Adicionar empresa";
+}
+
+<div class="text-center">
+
+    <h1>Formulario de cadastro de empresas.</h1>
+    <p>Preencha todos os campos obrigatorios para inserir uma empresa.</p>
+    <br />
+</div>
+
+<form asp-controller="Empresas" asp-action="Adicionar" method="post" class="row g-3">
+
+    <div class="row">
+        <div class="col-md-6">
+            <labal class="form-label">Nome da empresa</labal>
+            <input type="text" asp-for="Nome" class="form-control">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">CNPJ</labal>
+            <input type="text" name="cnpj" data-mask="00.000.000/0000-00" asp-for="CNPJ" class="form-control" maxlength="18">
+            @Html.ValidationMessageFor(x => x.CNPJ)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Nome Fántasia</labal>
+            <input type="text" asp-for="NomeFantasia" class="form-control">
+            @Html.ValidationMessageFor(x => x.NomeFantasia)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Razão Sócial</labal>
+            <input type="text" asp-for="Razao" class="form-control">
+            @Html.ValidationMessageFor(x => x.Razao)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Telefone</labal>
+            <input type="text" data-mask="(00) 0000-0000" asp-for="Telefone" class="form-control" maxlength="15">
+            @Html.ValidationMessageFor(x => x.Telefone)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">CEP</labal>
+            <input type="text" data-mask="00.000-000" asp-for="Cep" class="form-control" maxlength="10">
+            @Html.ValidationMessageFor(x => x.Cep)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Rua</labal>
+            <input type="text" asp-for="Rua" class="form-control">
+            @Html.ValidationMessageFor(x => x.Rua)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Bairro</labal>
+            <input type="text" asp-for="Bairro" class="form-control">
+            @Html.ValidationMessageFor(x => x.Bairro)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Estado</labal>
+            <input type="text" asp-for="Estado" class="form-control">
+            @Html.ValidationMessageFor(x => x.Estado)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Cidade</labal>
+            <input type="text" asp-for="Cidade" class="form-control">
+            @Html.ValidationMessageFor(x => x.Cidade)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">Numero</labal>
+            <input type="text" asp-for="Numero" class="form-control">
+            @Html.ValidationMessageFor(x => x.Numero)
+        </div>
+        <div class="col-md-6">
+            <labal class="form-label">E-mail</labal>
+            <input type="text" asp-for="Email" class="form-control">
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+    <br />
+    <div class="d-grid gap-2">
+        <a class="btn btn-danger" asp-controller="Empresas" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+    </div>
+</form>

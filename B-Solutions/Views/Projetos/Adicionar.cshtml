@@ -1,0 +1,97 @@
+﻿@using B_Solutions.Enums
+@model ProjetoModel
+@{
+    ViewData["Title"] = "Adicionar projeto";
+}
+
+<div class="text-center">
+
+    <h1>Formulario de cadastro de projetos</h1>
+    <p>Informe todos os dados dos campos obrigatorios para adicionar um projeto.</p>
+    <br />
+</div>
+
+<form asp-controller="Projetos" asp-action="Adicionar" method="post" class="row g-3">
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <labal class="form-label">Concessionaria</labal>
+            <select class="form-select" asp-for="Concessionaria">
+                <option value="">Selecione</option>
+                <option value="@ConcessionariasEnums.CEEE">CEEE</option>
+                <option value="@ConcessionariasEnums.RGE">RGE</option>
+                <option value="@ConcessionariasEnums.COPREL">COPREL</option>
+                <option value="@ConcessionariasEnums.CERTEL">CERTEL</option>
+                <option value="@ConcessionariasEnums.CERFOX">CERFOX</option>
+                <option value="@ConcessionariasEnums.CERTAJA">CERTAJA</option>
+                <option value="@ConcessionariasEnums.NOVAPALMAENERGIA">NOVA PALMAE NERGIA</option>
+                <option value="@ConcessionariasEnums.DAER">DAER</option>
+                <option value="@ConcessionariasEnums.DNIT">DNIT</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.Concessionaria)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Tipo de projeto</labal>
+            <select class="form-select" asp-for="Tipo">
+                <option value="">Selecione</option>
+                <option value="@TiposEnum.Compartilhamento">Compartilhamento</option>
+                <option value="@TiposEnum.AnteProjeto">Ante Projeto</option>
+                <option value="@TiposEnum.Pingamento">Pingamento</option>
+                <option value="@TiposEnum.FTTH">FTTH</option>
+                <option value="@TiposEnum.Travessia">Travessia</option>
+                <option value="@TiposEnum.Outros">Outros</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.Tipo)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Status do projeto</labal>
+            <select class="form-select" asp-for="Situacao">
+                <option value="">Selecione</option>
+                <option value="@SituacaoEnum.Aprovado">Aprovado</option>
+                <option value="@SituacaoEnum.Reprovado">Reprovado</option>
+                <option value="@SituacaoEnum.Arquivado">Arquivado</option>
+                <option value="@SituacaoEnum.EmAnalise">Em Analise</option>
+                <option value="@SituacaoEnum.SemStatus">Sem Status</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.Situacao)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Empresa</labal>
+            <input type="text" asp-for="Empresa" class="form-control">
+            @Html.ValidationMessageFor(x => x.Empresa)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Protocolo</labal>
+            <input type="text" asp-for="Protocolo" class="form-control">
+            @Html.ValidationMessageFor(x => x.Protocolo)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Nome do projeto</labal>
+            <input type="text" asp-for="Nome" class="form-control">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Localidade</labal>
+            <input type="text" asp-for="Localidade" class="form-control">
+            @Html.ValidationMessageFor(x => x.Localidade)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">N° ART</labal>
+            <input type="text" asp-for="ART" class="form-control">
+            @Html.ValidationMessageFor(x => x.ART)
+        </div>
+        <div class="col-md-4">
+            <labal class="form-label">Engenheiro</labal>
+            <input type="text" asp-for="Engenheiros" class="form-control">
+            @Html.ValidationMessageFor(x => x.Engenheiros)
+        </div>
+        <div class="col-md-12">
+            <labal class="form-label">Campo de anotação</labal>
+            <textarea class="form-control" rows="6" asp-for="Observacao"></textarea>
+            @Html.ValidationMessageFor(x => x.Observacao)
+        </div>
+    </div>
+    <br />
+    <a class="btn btn-danger" asp-controller="Projetos" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+</form>

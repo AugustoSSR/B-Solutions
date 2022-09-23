@@ -21,7 +21,8 @@ namespace B_Solutions.Filters
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
                 }
-                if (usuario.Perfil != Enums.PerfilEnum.ADMINISTRADOR)
+
+                if (usuario.usuarioCargo != "ADMINISTRADOR") // alterar este metodo depois para outros usuarios terem acesso
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Restrito" }, { "action", "Index" } });
                 }

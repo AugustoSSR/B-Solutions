@@ -93,12 +93,12 @@ namespace B_Solutions.Controllers
                 {
                     usuario = new UsuariosModel()
                     {
-                        Id = usuarioSemSenha.Id,
-                        Nome = usuarioSemSenha.Nome,
-                        Login = usuarioSemSenha.Login,
-                        Email = usuarioSemSenha.Email,
-                        Telefone = usuarioSemSenha.Telefone,
-                        Perfil = usuarioSemSenha.Perfil
+                        usuarioId = usuarioSemSenha.usuarioSemSenhaId,
+                        usuarioNome = usuarioSemSenha.usuarioSemSenhaNome,
+                        usuarioLogin = usuarioSemSenha.usuarioSemSenhaLogin,
+                        usuarioEmail = usuarioSemSenha.usuarioSemSenhaEmail,
+                        usuarioTelefone = usuarioSemSenha.usuarioSemSenhaTelefone,
+                        usuarioCargo = usuarioSemSenha.usuarioSemSenhaCargo
                     };
                     usuario = _usuariosRepositorio.Atualizar(usuario);
                     TempData["MensagemSucesso"] = " Usuario alterado com sucesso";

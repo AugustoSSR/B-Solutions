@@ -1,7 +1,9 @@
 ﻿using B_Solutions.Data;
 using B_Solutions.Filters;
+using B_Solutions.Helper;
 using B_Solutions.Models;
 using B_Solutions.Repositorio.Interface;
+using B_Solutions.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -11,9 +13,11 @@ namespace B_Solutions.Controllers
     public class ProjetosController : Controller
     {
         private readonly IProjetosRepositorio _projetosRepositorio;
-        public ProjetosController(IProjetosRepositorio projetosRepositorio)
+        private readonly NorthwinService _northwinService;
+        public ProjetosController(IProjetosRepositorio projetosRepositorio, NorthwinService northwinService)
         {
             _projetosRepositorio = projetosRepositorio;
+            _northwinService = northwinService; 
         }
         public IActionResult Index()
         {
@@ -23,7 +27,11 @@ namespace B_Solutions.Controllers
 
         public IActionResult Adicionar()
         {
-            return View();
+            ProjetosList dropdownList = new ProjetosList
+            {
+                listTipos = _northwinService.getTipos()
+            };
+            return View(dropdownList);
         }
         public IActionResult Editar(int id)
         {

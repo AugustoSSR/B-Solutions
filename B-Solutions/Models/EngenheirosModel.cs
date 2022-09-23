@@ -5,17 +5,16 @@ namespace B_Solutions.Models
 {
     public class EngenheirosModel
     {
-        public int Id { get; set; }
+        public int engenheiroId { get; set; }
         [Required(ErrorMessage = "Coloque o nome completo.")]
-        public string Nome { get; set; }
+        public string engenheiroNome { get; set; }
         [Required(ErrorMessage = "Coloque o CPF.")]
-        public string CPF { get; set; }
+        public string engenheiroCPF { get; set; }
         [Required(ErrorMessage = "Coloque o numero do CREA.")]
-        public string CREA { get; set; }
+        public string engenheiroCREA { get; set; }
         [Required(ErrorMessage = "Coloque o e-mail.")]
-        public string Email { get; set; }
-        [Required]
-        public DateTime dataCadastro { get; set; }
-        public DateTime? dataAlteracao { get; set; }
+        public string engenheiroEmail { get; set; }
+        public DateTime engenheiroDataCadastro { get; set; }
+        public DateTime? engenheiroDataAlteracao { get; set; }
     }
 }

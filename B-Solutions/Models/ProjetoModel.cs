@@ -7,28 +7,28 @@ namespace B_Solutions.Models
 {
     public class ProjetoModel
     {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Selecione a empresa do projeto.")]
-        public string Empresa { get; set; }  
-        [Required(ErrorMessage = "Selecione o tipo do projeto.")]
-        public string Tipo { get; set; }
+        public int projetoId { get; set; }
         [Required(ErrorMessage = "Selecione o nome do projeto.")]
-        public string Nome { get; set; }
+        public string projetoNome { get; set; }
+        [Required(ErrorMessage = "Selecione a empresa do projeto.")]
+        public string projetoEmpresa { get; set; }  
+        [Required(ErrorMessage = "Selecione o tipo do projeto.")]
+        public string projetoTipo { get; set; }
         [Required(ErrorMessage = "Selecione a concessionaria.")]
-        public string Concessionaria { get; set; }
+        public string projetoConcessionaria { get; set; }
         [Required(ErrorMessage = "Digite a localidade do projeto.")]
-        public string Localidade { get; set; }
+        public string projetoLocalidade { get; set; }
         [Required(ErrorMessage = "Selecione o engenheiro.")]
-        public string Engenheiros { get; set; }
+        public string projetoEngenheiro { get; set; }
         [Required(ErrorMessage = "Selecione o engenheiro.")]
-        public string Situacao { get; set; }
+        public string projetoStatus { get; set; }
         [Required(ErrorMessage = "Selecione o engenheiro.")]
-        public string ART { get; set; }
+        public string projetoART { get; set; }
         [Required(ErrorMessage = "Selecione o engenheiro.")]
-        public string Protocolo { get; set; }
+        public string projetoProtocolo { get; set; }
         [Required(ErrorMessage = "Selecione o engenheiro.")]
-        public string Observacao { get; set; }
-        public DateTime dataCadastro { get; set; }
-        public DateTime? dataAlteracao { get; set; }
+        public string projetoObservacao { get; set; }
+        public DateTime projetoDataCadastro { get; set; }
+        public DateTime? projetoDataAlteracao { get; set; }
     }
 }

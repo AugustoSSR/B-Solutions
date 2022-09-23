@@ -1,0 +1,36 @@
+﻿@using B_Solutions.Enums
+@model TipoProjetoModel;
+@{
+    ViewData["Title"] = "Adicionar usuario";
+}
+
+<div class="text-center">
+
+    <h1>Formulario de cadastro de tipos</h1>
+    <p>Informe todos os dados dos campos obrigatorios para adicionar um tipo.</p>
+    <br />
+</div>
+
+<form asp-controller="Tipos" asp-action="Adicionar" method="post">
+
+    <div class="row">
+        <div class="col mb-3">
+            <labal class="form-label">Nome</labal>
+            <input type="text" asp-for="Nome" class="form-control">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="col mb-3">
+            <labal class="form-label">Estado</labal>
+            <select class="form-select" asp-for="IsActive">
+                <option value="" selected>Selecione</option>
+                <option value="1">Ativado</option>
+                <option value="0">Desativado</option>
+            </select>
+        </div>
+    </div>
+    <br />
+    <div class="d-grid gap-2">
+        <a class="btn btn-danger" asp-controller="Tipos" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+    </div>
+</form>

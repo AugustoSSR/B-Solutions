@@ -33,15 +33,15 @@ namespace B_Solutions.Controllers
             try
             {
                 UsuariosModel usuarioLogado = _sessao.BuscarSessaoUsuario();
-                UsuariosModel usuarioEmail = _usuariosRepositorio.BuscarPorEmail(usuarioLogado.Email, usuarioLogado.Login);
-                alterarSenhaModel.Id = usuarioLogado.Id;
+                UsuariosModel usuarioEmail = _usuariosRepositorio.BuscarPorEmail(usuarioLogado.usuarioEmail, usuarioLogado.usuarioLogin);
+                alterarSenhaModel.alterarId = usuarioLogado.usuarioId;
                 if (ModelState.IsValid)
                 { 
                     _usuariosRepositorio.AlterarSenha(alterarSenhaModel);
 
                     string mensagem = $"Ola, sua senha foi alterada com sucesso, caso não tenha sido você, faça agora mesmo a redefinição da sua senha.";
 
-                    bool emailEnviado = _email.Enviar(usuarioEmail.Email, "B Solutions - Alteração de Senha", mensagem);
+                    bool emailEnviado = _email.Enviar(usuarioEmail.usuarioEmail, "B Solutions - Alteração de Senha", mensagem);
 
                     if (emailEnviado)
                     {

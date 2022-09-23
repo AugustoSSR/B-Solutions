@@ -44,13 +44,13 @@ namespace B_Solutions.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    UsuariosModel usuario = _usuariosRepositorio.BuscarPorLogin(loginModel.Login);
+                    UsuariosModel usuario = _usuariosRepositorio.BuscarPorLogin(loginModel.loginUsername);
                     if(usuario != null)
                     {
-                        if (usuario.SenhaValida(loginModel.Senha))
+                        if (usuario.SenhaValida(loginModel.loginSenha))
                         {
                             _sessao.criarSessaoUsuario(usuario);
-                            TempData["MensagemSucesso"] = $"Você logou com sucesso. Sejá bem vindo {usuario.Nome}";
+                            TempData["MensagemSucesso"] = $"Você logou com sucesso. Sejá bem vindo {usuario.usuarioNome}";
                             return RedirectToAction("Index", "Home");
                         }
                         
@@ -74,13 +74,13 @@ namespace B_Solutions.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    UsuariosModel usuario = _usuariosRepositorio.BuscarPorEmail(redefinirSenhaModel.Email, redefinirSenhaModel.Login);
+                    UsuariosModel usuario = _usuariosRepositorio.BuscarPorEmail(redefinirSenhaModel.redefinirEmail, redefinirSenhaModel.redefinirLogin);
                     if (usuario != null) 
                     {
                         string novaSenha = usuario.GerarNovaSenha();
                         string mensagem = $"Sua nova senha é: {novaSenha}";
 
-                        bool emailEnviado = _email.Enviar(usuario.Email, "B Solutions - Redefinição de Senha", mensagem);
+                        bool emailEnviado = _email.Enviar(usuario.usuarioEmail, "B Solutions - Redefinição de Senha", mensagem);
 
                         if (emailEnviado)
                         {

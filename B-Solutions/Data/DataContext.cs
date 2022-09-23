@@ -13,8 +13,8 @@ namespace B_Solutions.Data
         public DbSet<EngenheirosModel> Engenheiros { get; set; }
         public DbSet<EmpresasModel> Empresas { get; set; }
         public DbSet<UsuariosModel> Usuarios { get; set; }
-        public DbSet<PerfilModel> Perfil { get; set; }
-        public DbSet<TiposModel> Tipos { get; set; }
+        public DbSet<CargoModel> Perfil { get; set; }
+        public DbSet<TipoProjetoModel> Tipos { get; set; }
         public DbSet<StatusModel> Status { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace B_Solutions.Repositorio
 
         public EmpresasModel ListarPorID(int id)
         {
-            return _bancoContext.Empresas.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Empresas.FirstOrDefault(x => x.empresaId == id);
         }
         public List<EmpresasModel> GetEmpresas()
         {
@@ -24,7 +24,7 @@ namespace B_Solutions.Repositorio
         public EmpresasModel Adicionar(EmpresasModel empresas)
         {
             // Inserção do banco de dados.
-            empresas.dataCadastro = DateTime.Now;
+            empresas.empresaDataCadastro = DateTime.Now;
             _bancoContext.Empresas.Add(empresas);
             _bancoContext.SaveChanges();
             return empresas;
@@ -34,9 +34,9 @@ namespace B_Solutions.Repositorio
         {
             EmpresasModel empresasDB = ListarPorID(empresas.Id);
             if (empresasDB == null) throw new System.Exception("Houve um erro na atualização do empresas.");
-            empresasDB.Nome = empresas.Nome;
-            empresasDB.Cidade = empresas.Cidade;
-            empresasDB.CNPJ = empresas.CNPJ;
+            empresasDB.empresaRazao = empresas.empresaRazao;
+            empresasDB.empresaRuaCidade = empresas.empresaRuaCidade;
+            empresasDB.empresaCNPJ = empresas.empresaCNPJ;
             empresasDB.NomeFantasia = empresas.NomeFantasia;
             empresasDB.Razao = empresas.Razao;
             empresasDB.Telefone = empresas.Telefone;

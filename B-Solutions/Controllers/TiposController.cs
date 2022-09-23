@@ -1,4 +1,5 @@
 ﻿using B_Solutions.Filters;
+using B_Solutions.Helper;
 using B_Solutions.Models;
 using B_Solutions.Repositorio.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ namespace B_Solutions.Controllers
         }
         public IActionResult Index()
         {
-            List<TiposModel> tipos = _tiposRepositorio.GetTipos();
+            List<TipoProjetoModel> tipos = _tiposRepositorio.GetTipos();
             return View(tipos);
         }
 
@@ -25,12 +26,12 @@ namespace B_Solutions.Controllers
         }
         public IActionResult Editar(int id)
         {
-            TiposModel tipos = _tiposRepositorio.ListarPorID(id);
+            TipoProjetoModel tipos = _tiposRepositorio.ListarPorID(id);
             return PartialView(tipos);
         }
         public IActionResult ApagarConfirmacao(int id)
         {
-            TiposModel tipos = _tiposRepositorio.ListarPorID(id);
+            TipoProjetoModel tipos = _tiposRepositorio.ListarPorID(id);
             return View(tipos);
         }
 
@@ -58,7 +59,7 @@ namespace B_Solutions.Controllers
         }
 
         [HttpPost]
-        public IActionResult Adicionar(TiposModel tipos)
+        public IActionResult Adicionar(TipoProjetoModel tipos)
         {
             try
             {
@@ -78,7 +79,7 @@ namespace B_Solutions.Controllers
         }
 
         [HttpPost]
-        public IActionResult Editar(TiposModel tipos)
+        public IActionResult Editar(TipoProjetoModel tipos)
         {
             try
             {

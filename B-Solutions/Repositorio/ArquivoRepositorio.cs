@@ -6,41 +6,42 @@ namespace B_Solutions.Repositorio
 {
     public class ArquivoRepositorio : IArquivoRepositorio
     {
-        private readonly DataContext _bancoContext;
+        private readonly DataContext _dataContext;
         public ArquivoRepositorio(DataContext bancoContext)
         {
-            _bancoContext = bancoContext;
+            _dataContext = bancoContext;
         }
         public ArquivosModel ListarPorID(int id)
         {
-            return _bancoContext.Arquivos.FirstOrDefault(x => x.Id == id);
+            return _dataContext.Arquivos.FirstOrDefault(x => x.arquivoId == id);
         }
         public List<ArquivosModel> GetArquivos()
         {
             // listagem de Arquivoss
-            return _bancoContext.Arquivos.ToList();
+            return _dataContext.Arquivos.ToList();
         }
         public ArquivosModel Adicionar(ArquivosModel Arquivos)
         {
             // Inserção do banco de dados.
-            Arquivos.dataCadastro = DateTime.Now;
-            _bancoContext.Arquivos.Add(Arquivos);
-            _bancoContext.SaveChanges();
+            Arquivos.arquivoDataCadastro = DateTime.Now;
+            _dataContext.Arquivos.Add(Arquivos);
+            _dataContext.SaveChanges();
             return Arquivos;
         }
 
         public ArquivosModel Atualizar(ArquivosModel Arquivos)
         {
-            ArquivosModel ArquivosDB = ListarPorID(Arquivos.Id);
+            ArquivosModel ArquivosDB = ListarPorID(Arquivos.arquivoId);
             if (ArquivosDB == null) throw new System.Exception("Houve um erro na atualização do Arquivos.");
-            ArquivosDB.Nome = Arquivos.Nome;
-            ArquivosDB.numeroCaderno = Arquivos.numeroCaderno;
-            ArquivosDB.Empresa = Arquivos.Empresa;
-            ArquivosDB.Localidade = Arquivos.Localidade;
-            ArquivosDB.dataAlteracao = DateTime.Now;
+            ArquivosDB.arquivoNome = Arquivos.arquivoNome;
+            ArquivosDB.arquivoCaderno = Arquivos.arquivoCaderno;
+            ArquivosDB.arquivoEmpresa = Arquivos.arquivoEmpresa;
+            ArquivosDB.arquivoCaixa = Arquivos.arquivoCaixa;
+            ArquivosDB.arquivoLocalidade = Arquivos.arquivoLocalidade;
+            ArquivosDB.arquivoDataAlteracao = DateTime.Now;
 
-            _bancoContext.Arquivos.Update(ArquivosDB);
-            _bancoContext.SaveChanges();
+            _dataContext.Arquivos.Update(ArquivosDB);
+            _dataContext.SaveChanges();
 
             return ArquivosDB;
         }
@@ -51,8 +52,8 @@ namespace B_Solutions.Repositorio
 
             if (ArquivosDB == null) throw new System.Exception("Houve um erro na deleção do Arquivos.");
 
-            _bancoContext.Arquivos.Remove(ArquivosDB);
-            _bancoContext.SaveChanges();
+            _dataContext.Arquivos.Remove(ArquivosDB);
+            _dataContext.SaveChanges();
 
             return true;
         }

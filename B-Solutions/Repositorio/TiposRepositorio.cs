@@ -11,16 +11,16 @@ namespace B_Solutions.Repositorio
         {
             _bancoContext = bancoContext;
         }
-        public TiposModel ListarPorID(int id)
+        public TipoProjetoModel ListarPorID(int id)
         {
-            return _bancoContext.Tipos.FirstOrDefault(x => x.idTipo == id);
+            return _bancoContext.Tipos.FirstOrDefault(x => x.Id == id);
         }
-        public List<TiposModel> GetTipos()
+        public List<TipoProjetoModel> GetTipos()
         {
             // listagem de Arquivoss
             return _bancoContext.Tipos.ToList();
         }
-        public TiposModel Adicionar(TiposModel tipos)
+        public TipoProjetoModel Adicionar(TipoProjetoModel tipos)
         {
             // Inserção do banco de dados.
             tipos.dataCadastro = DateTime.Now;
@@ -29,12 +29,11 @@ namespace B_Solutions.Repositorio
             return tipos;
         }
 
-        public TiposModel Atualizar(TiposModel tipos)
+        public TipoProjetoModel Atualizar(TipoProjetoModel tipos)
         {
-            TiposModel tiposDB = ListarPorID(tipos.idTipo);
+            TipoProjetoModel tiposDB = ListarPorID(tipos.Id);
             if (tiposDB == null) throw new System.Exception("Houve um erro na atualização do Arquivos.");
             tiposDB.Nome = tipos.Nome;
-            tiposDB.IsActive = tipos.IsActive;
             tiposDB.dataAlteracao = DateTime.Now;
 
             _bancoContext.Tipos.Update(tiposDB);
@@ -45,7 +44,7 @@ namespace B_Solutions.Repositorio
 
         public bool Apagar(int id)
         {
-            TiposModel tiposDB = ListarPorID(id);
+            TipoProjetoModel tiposDB = ListarPorID(id);
 
             if (tiposDB == null) throw new System.Exception("Houve um erro na deleção do Arquivos.");
 

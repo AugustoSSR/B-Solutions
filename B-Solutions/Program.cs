@@ -2,6 +2,7 @@ using B_Solutions.Data;
 using B_Solutions.Helper;
 using B_Solutions.Repositorio;
 using B_Solutions.Repositorio.Interface;
+using B_Solutions.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace B_Solutions
@@ -31,6 +32,7 @@ namespace B_Solutions
             builder.Services.AddScoped<ITiposRepositorio, TiposRepositorio>();
             builder.Services.AddScoped<ISessao, Sessao>();
             builder.Services.AddScoped<IEmail, Email>();
+            builder.Services.AddScoped<NorthwinService>();
             builder.Services.AddSession(o =>
             {
                 o.Cookie.HttpOnly = true;

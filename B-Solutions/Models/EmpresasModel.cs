@@ -6,33 +6,45 @@ namespace B_Solutions.Models
 {
     public class EmpresasModel
     {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Test")]
-        public string Nome { get; set; }
-        [Required]
-        public string CNPJ { get; set; }
-        [Required]
-        public string NomeFantasia { get; set; }
-        [Required]
-        public string Razao { get; set; }
-        [Required]
-        public string Telefone { get; set; }
-        [Required]
-        public string Rua { get; set; }
-        [Required]
-        public string Numero { get; set; }
-        [Required]
-        public string Bairro { get; set; }
-        [Required]
-        public string Cidade { get; set; }
-        [Required]
-        public string Estado { get; set; }
-        [Required]
-        public string Cep { get; set; }
-        [Required]
-        public string Email { get; set; }
-        [Required]
-        public DateTime dataCadastro { get; set; }
-        public DateTime? dataAlteracao { get; set; }
+        public int empresaId { get; set; }
+        [Required(ErrorMessage = "Nome Fantasia - Por favor preencha este campo.")]
+        public string empresaFantasia { get; set; }
+        [Required(ErrorMessage = "Razão Sócial - Por favor preencha este campo.")]
+        public string empresaRazao { get; set; }
+        [Required(ErrorMessage = "CNPJ - Por favor preencha este campo.")]
+        public string empresaCNPJ { get; set; }
+        [Required(ErrorMessage = "Telefone - Por favor preencha este campo.")]
+        [Phone(ErrorMessage = "Número de celular incorreto.")]
+        public string empresaTelefone { get; set; }
+        [Required(ErrorMessage = "Rua - Por favor preencha este campo.")]
+        public string empresaRua { get; set; }
+        [Required(ErrorMessage = "Numero - Por favor preencha este campo.")]
+        public string empresaRuaNumero { get; set; }
+        [Required(ErrorMessage = "Bairro - Por favor preencha este campo.")]
+        public string empresaRuaBairro { get; set; }
+        [Required(ErrorMessage = "Cidade - Por favor preencha este campo.")]
+        public string empresaRuaCidade { get; set; }
+        [Required(ErrorMessage = "Estado - Por favor preencha este campo.")]
+        public string empresaRuaEstado { get; set; }
+        [Required(ErrorMessage = "Cep - Por favor preencha este campo.")]
+        public string empresaRuaCep { get; set; }
+
+        // Dados contato comercial para RGE
+        public string empresaComercialEmail { get; set; }
+        public string empresaComercialCPF { get; set; }
+        public string empresaComercialRG { get; set; }
+        public string empresaComercialNome { get; set; }
+        public string empresaComercialCargo { get; set; }
+
+        // Dados contato responsavel para RGE
+        public string empresaResponsavelEmail { get; set; }
+        public string empresaResponsavelCPF { get; set; }
+        public string empresaResponsavelRG { get; set; }
+        public string empresaResponsavelNome { get; set; }
+        public string empresaResponsavelCargo { get; set; }
+
+        // Registro de modificação e criação
+        public DateTime empresaDataCadastro { get; set; }
+        public DateTime? empresaDataAlteracao { get; set; }
     }
 }

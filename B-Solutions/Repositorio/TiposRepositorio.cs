@@ -13,7 +13,7 @@ namespace B_Solutions.Repositorio
         }
         public TiposModel ListarPorID(int id)
         {
-            return _bancoContext.Tipos.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Tipos.FirstOrDefault(x => x.idTipo == id);
         }
         public List<TiposModel> GetTipos()
         {
@@ -31,7 +31,7 @@ namespace B_Solutions.Repositorio
 
         public TiposModel Atualizar(TiposModel tipos)
         {
-            TiposModel tiposDB = ListarPorID(tipos.Id);
+            TiposModel tiposDB = ListarPorID(tipos.idTipo);
             if (tiposDB == null) throw new System.Exception("Houve um erro na atualização do Arquivos.");
             tiposDB.Nome = tipos.Nome;
             tiposDB.IsActive = tipos.IsActive;

@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-$(document).ready(function () {
+﻿$(document).ready(function () {
     getDatatable('#projetosTable');
     getDatatable('#usuariosTable');
     getDatatable('#arquivosTable');
@@ -38,7 +34,29 @@ function getDatatable(id) {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
-        }
+        },
+        "order": [[0, "desc"]],
+        "dom": "Bfrtip",
+        "buttons": [
+            {
+                text: 'Exportar Excel',
+                extend: 'excelHtml5',
+                title: 'Exportar Excel',
+                filename: 'Relatorio Tipos',
+                exportOptions: {
+                    columns: [1,2]
+                }
+            },'pageLenght'
+        ],
     });
+};
+
+function mostrarModal(modelo = MODELO_BASE) {
+    $("#").val()
+    $("#").val()
+    $("#").val()
+    $("#").val()
+    $("#").val()
+    $("#").val()
+    $("#").val()
 }
-  

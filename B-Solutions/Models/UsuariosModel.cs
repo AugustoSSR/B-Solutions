@@ -29,6 +29,7 @@ namespace B_Solutions.Models
 
         [Required(ErrorMessage = "Informe o cargo do usuario")]
         public PerfilEnum? Perfil { get; set; }
+        public int? idPerfil { get; set; }
         [Required]
         public DateTime dataCadastro { get; set; }
         public DateTime? dataAlteracao { get; set; }

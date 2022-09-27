@@ -13,7 +13,7 @@ namespace B_Solutions.Repositorio
         }
         public ProjetoModel ListarPorID(int id)
         {
-            return _bancoContext.Projetos.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Projetos.FirstOrDefault(x => x.IdProjeto == id);
         }
         public List<ProjetoModel> GetProjetos()
         {
@@ -23,7 +23,7 @@ namespace B_Solutions.Repositorio
         public ProjetoModel Adicionar(ProjetoModel projeto)
         {
             // Inserção do banco de dados.
-            projeto.dataCadastro = DateTime.Now;
+            projeto.projetoDataCadastro = DateTime.Now;
             _bancoContext.Projetos.Add(projeto);
             _bancoContext.SaveChanges();
             return projeto;
@@ -31,19 +31,19 @@ namespace B_Solutions.Repositorio
 
         public ProjetoModel Atualizar(ProjetoModel projeto)
         {
-            ProjetoModel projetoDB = ListarPorID(projeto.Id);
+            ProjetoModel projetoDB = ListarPorID(projeto.IdProjeto);
             if (projetoDB == null) throw new System.Exception("Houve um erro na atualização do projeto.");
-            projetoDB.Nome = projeto.Nome;
-            projetoDB.Concessionaria = projeto.Concessionaria;
-            projetoDB.Observacao = projeto.Observacao;
-            projetoDB.ART = projeto.ART;
-            projetoDB.Engenheiros = projeto.Engenheiros;
-            projetoDB.Empresa = projeto.Empresa;
-            projetoDB.Protocolo = projeto.Protocolo;
-            projetoDB.Localidade = projeto.Localidade;
-            projetoDB.Situacao = projeto.Situacao;
-            projetoDB.Tipo = projeto.Tipo;
-            projetoDB.dataAlteracao = DateTime.Now;
+            projetoDB.projetoNome = projeto.projetoNome;
+            projetoDB.projetoConcessionaria = projeto.projetoConcessionaria;
+            projetoDB.projetoObservacao = projeto.projetoObservacao;
+            projetoDB.projetoART = projeto.projetoART;
+            projetoDB.projetoEngenheiro = projeto.projetoEngenheiro;
+            projetoDB.projetoEmpresa = projeto.projetoEmpresa;
+            projetoDB.projetoProtocolo = projeto.projetoProtocolo;
+            projetoDB.projetoLocalidade = projeto.projetoLocalidade;
+            projetoDB.projetoStatus = projeto.projetoStatus;
+            projetoDB.projetoTipo = projeto.projetoTipo;
+            projetoDB.projetoDataAlteracao = DateTime.Now;
 
             _bancoContext.Projetos.Update(projetoDB);
             _bancoContext.SaveChanges();

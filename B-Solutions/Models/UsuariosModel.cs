@@ -1,12 +1,13 @@
 ﻿using B_Solutions.Enums;
 using B_Solutions.Helper;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace B_Solutions.Models
 {
     public class UsuariosModel
     {
-        public int usuarioId { get; set; }
+        public int IdUsuario { get; set; }
         
         [Required(ErrorMessage = "Digite o nome completo.")]
         public string usuarioNome { get; set; }
@@ -28,7 +29,7 @@ namespace B_Solutions.Models
         public string usuarioSenha { get; set; }
 
         [Required(ErrorMessage = "Informe o cargo do usuario")]
-        public string usuarioCargo { get; set; }
+        public string? usuarioCargo { get; set; }
         public int? usuarioIdCargo { get; set; }
         public DateTime usuarioDataCadastro { get; set; }
         public DateTime? usuarioDataAlteracao { get; set; }

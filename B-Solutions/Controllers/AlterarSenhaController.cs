@@ -34,7 +34,7 @@ namespace B_Solutions.Controllers
             {
                 UsuariosModel usuarioLogado = _sessao.BuscarSessaoUsuario();
                 UsuariosModel usuarioEmail = _usuariosRepositorio.BuscarPorEmail(usuarioLogado.usuarioEmail, usuarioLogado.usuarioLogin);
-                alterarSenhaModel.alterarId = usuarioLogado.usuarioId;
+                alterarSenhaModel.alterarId = usuarioLogado.IdUsuario;
                 if (ModelState.IsValid)
                 { 
                     _usuariosRepositorio.AlterarSenha(alterarSenhaModel);

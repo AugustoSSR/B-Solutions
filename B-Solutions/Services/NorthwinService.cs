@@ -31,8 +31,8 @@ namespace B_Solutions.Services
                 {
                     customers.Add(new TipoProjetoModel
                     {
-                        idTipo = Convert.ToInt16(idr["idTipos"]),
-                        Nome = Convert.ToString(idr["Nome"]),
+                        IdProjetoTipo = Convert.ToInt16(idr["IdProjetoTipo"]),
+                        tipoProjetoNome = Convert.ToString(idr["tipoProjetoNome"]),
                     });
                 }
             }

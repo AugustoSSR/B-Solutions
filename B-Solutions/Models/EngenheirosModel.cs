@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace B_Solutions.Models
 {
     public class EngenheirosModel
     {
-        public int engenheiroId { get; set; }
+        public int IdEngenheiro { get; set; }
         [Required(ErrorMessage = "Coloque o nome completo.")]
         public string engenheiroNome { get; set; }
         [Required(ErrorMessage = "Coloque o CPF.")]

@@ -24,20 +24,20 @@
         </div>
     }
 
-    <main class="form-signin w-100 m-auto">
+    <main class="form-signin w-150 m-auto">
         <form asp-controller="Login" asp-action="Entrar" method="post">
             <img class="mb-4" src="~/img/logo.png" alt="" width="100" height="100">
             <h1 class="h3 mb-3 fw-normal">Faça o seu login</h1>
 
             <div class="form-floating">
-                <input type="text" asp-for="Login" class="form-control" id="login" placeholder="Username">
+                <input type="text" asp-for="loginUsername" class="form-control" id="login" placeholder="Username">
                 <label for="login">Username</label>
-                @Html.ValidationMessageFor(x => x.Login)
+                @Html.ValidationMessageFor(x => x.loginUsername)
             </div>
             <div class="form-floating">
-                <input type="password" asp-for="Senha" class="form-control" id="senha" placeholder="Password">
+                <input type="password" asp-for="loginSenha" class="form-control" id="senha" placeholder="Password">
                 <label for="senha">Password</label>
-                @Html.ValidationMessageFor(x => x.Senha)
+                @Html.ValidationMessageFor(x => x.loginSenha)
             </div>
 
             <div class="checkbox mb-3">
@@ -47,7 +47,7 @@
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Logar</button>
             <br />
-            <p class="mb-4 text-small mx-auto">
+            <p class="mx-auto">
                 Esqueceu sua senha ?
                 <a asp-controller="Login" asp-action="RedefinirSenha" class="mb-3 fw-normal"> Esqueci</a>
             </p>

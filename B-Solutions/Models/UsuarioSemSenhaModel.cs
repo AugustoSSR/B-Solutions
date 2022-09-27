@@ -5,7 +5,7 @@ namespace B_Solutions.Models
 {
     public class UsuarioSemSenhaModel
     {
-        public int usuarioSemSenhaId { get; set; }
+        public int idUsuarioSemSenha { get; set; }
         [Required(ErrorMessage = "Digite o nome completo.")]
         public string usuarioSemSenhaNome { get; set; }
         [Required(ErrorMessage = "Digite o login do usuario.")]

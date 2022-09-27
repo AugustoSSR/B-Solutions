@@ -3,7 +3,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = Model.Nome;
+    ViewData["Title"] = Model.engenheiroNome;
 }
 
 <div class="text-center">
@@ -18,38 +18,38 @@
     <div class="row">
         <div class="col-md-2">
             <labal class="form-label">Identificação</labal>
-            <input type="text" asp-for="Id" class="form-control" disabled/>
+            <input type="text" asp-for="IdEngenheiro" class="form-control" disabled />
         </div>
         <div class="col-md-2">
             <labal class="form-label">Data de criação</labal>
-            <input type="text" asp-for="dataCadastro" class="form-control" disabled/>
+            <input type="text" asp-for="engenheiroDataCadastro" class="form-control" disabled/>
         </div>
         <div class="col-md-2">
             <labal class="form-label">Ultima alteração</labal>
-            <input type="text" asp-for="dataAlteracao" class="form-control" disabled />
+            <input type="text" asp-for="engenheiroDataAlteracao" class="form-control" disabled />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
             <labal class="form-label">Nome completo</labal>
-            <input type="text" asp-for="Nome" class="form-control">
-            @Html.ValidationMessageFor(x => x.Nome)
+            <input type="text" asp-for="engenheiroNome" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroNome)
         </div>
         <div class="col-md-6">
             <labal class="form-label">N° CPF</labal>
-            <input type="text" data-mask="000.000.000-00" asp-for="CPF" class="form-control" maxlength="14">
-            @Html.ValidationMessageFor(x => x.CPF)
+            <input type="text" data-mask="000.000.000-00" asp-for="engenheiroCPF" class="form-control" maxlength="14">
+            @Html.ValidationMessageFor(x => x.engenheiroCPF)
         </div>
         <div class="col-md-6">
             <labal class="form-label">N° CREA</labal>
-            <input type="text" asp-for="CREA" class="form-control">
-            @Html.ValidationMessageFor(x => x.CREA)
+            <input type="text" asp-for="engenheiroCREA" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroCREA)
         </div>
         <div class="col-md-6">
             <labal class="form-label">E-mail</labal>
-            <input type="text" asp-for="Email" class="form-control">
-            @Html.ValidationMessageFor(x => x.Email)
+            <input type="text" asp-for="engenheiroEmail" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroEmail)
         </div>
     </div>
     <br />

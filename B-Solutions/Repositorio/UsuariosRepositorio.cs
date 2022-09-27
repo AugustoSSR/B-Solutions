@@ -13,15 +13,15 @@ namespace B_Solutions.Repositorio
         }
         public UsuariosModel BuscarPorLogin(string login)
         {
-            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.usuarioLogin.ToUpper() == login.ToUpper());
         }
         public UsuariosModel BuscarPorEmail(string email, string login)
         {
-            return _bancoContext.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == login.ToUpper());
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.usuarioEmail.ToUpper() == email.ToUpper() && x.usuarioLogin.ToUpper() == login.ToUpper());
         }
         public UsuariosModel ListarPorID(int id)
         {
-            return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.IdUsuario == id);
         }
         public List<UsuariosModel> GetUsuario()
         {
@@ -31,7 +31,7 @@ namespace B_Solutions.Repositorio
         public UsuariosModel Adicionar(UsuariosModel usuario)
         {
             // Inserção do banco de dados.
-            usuario.dataCadastro = DateTime.Now;
+            usuario.usuarioDataCadastro = DateTime.Now;
             usuario.SetSenhaHash();
             _bancoContext.Usuarios.Add(usuario);
             _bancoContext.SaveChanges();
@@ -40,15 +40,15 @@ namespace B_Solutions.Repositorio
 
         public UsuariosModel Atualizar(UsuariosModel usuario)
         {
-            UsuariosModel usuarioDB = ListarPorID(usuario.Id);
+            UsuariosModel usuarioDB = ListarPorID(usuario.IdUsuario);
 
             if (usuarioDB == null) throw new System.Exception("Houve um erro na atualização do projeto.");
-            usuarioDB.Nome = usuario.Nome;
-            usuarioDB.Login = usuario.Login;
-            usuarioDB.Email = usuario.Email;
-            usuarioDB.Telefone = usuario.Telefone;
-            usuarioDB.Perfil = usuario.Perfil;
-            usuarioDB.dataAlteracao = DateTime.Now;
+            usuarioDB.usuarioNome = usuario.usuarioNome;
+            usuarioDB.usuarioLogin = usuario.usuarioLogin;
+            usuarioDB.usuarioEmail = usuario.usuarioEmail;
+            usuarioDB.usuarioTelefone = usuario.usuarioTelefone;
+            usuarioDB.usuarioCargo = usuario.usuarioCargo;
+            usuarioDB.usuarioDataAlteracao = DateTime.Now;
 
             _bancoContext.Usuarios.Update(usuarioDB);
             _bancoContext.SaveChanges();
@@ -58,13 +58,13 @@ namespace B_Solutions.Repositorio
 
         public UsuariosModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
         {
-            UsuariosModel usuarioDB = ListarPorID(alterarSenhaModel.Id);
+            UsuariosModel usuarioDB = ListarPorID(alterarSenhaModel.alterarId);
             if (usuarioDB == null) throw new Exception("Houve um erro na atualização da senha, usuário não encontrado.");
-            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha atual não confere.");
-            if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("Nova senha deve ser diferenda da senha atual");
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.alterarSenhaAtual)) throw new Exception("Senha atual não confere.");
+            if (usuarioDB.SenhaValida(alterarSenhaModel.alterarSenhaNova)) throw new Exception("Nova senha deve ser diferenda da senha atual");
 
-            usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
-            usuarioDB.dataAlteracao = DateTime.Now;
+            usuarioDB.SetNovaSenha(alterarSenhaModel.alterarSenhaNova);
+            usuarioDB.usuarioDataAlteracao = DateTime.Now;
 
             _bancoContext.Usuarios.Update(usuarioDB);
             _bancoContext.SaveChanges();

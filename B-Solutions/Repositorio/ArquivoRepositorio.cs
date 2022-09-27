@@ -13,7 +13,7 @@ namespace B_Solutions.Repositorio
         }
         public ArquivosModel ListarPorID(int id)
         {
-            return _dataContext.Arquivos.FirstOrDefault(x => x.arquivoId == id);
+            return _dataContext.Arquivos.FirstOrDefault(x => x.IdArquivo == id);
         }
         public List<ArquivosModel> GetArquivos()
         {
@@ -31,7 +31,7 @@ namespace B_Solutions.Repositorio
 
         public ArquivosModel Atualizar(ArquivosModel Arquivos)
         {
-            ArquivosModel ArquivosDB = ListarPorID(Arquivos.arquivoId);
+            ArquivosModel ArquivosDB = ListarPorID(Arquivos.IdArquivo);
             if (ArquivosDB == null) throw new System.Exception("Houve um erro na atualização do Arquivos.");
             ArquivosDB.arquivoNome = Arquivos.arquivoNome;
             ArquivosDB.arquivoCaderno = Arquivos.arquivoCaderno;

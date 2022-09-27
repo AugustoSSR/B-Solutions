@@ -3,7 +3,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = Model.Nome;
+    ViewData["Title"] = Model.arquivoNome;
 }
 
 <div class="text-center">
@@ -18,38 +18,38 @@
     <div class="row">
         <div class="col-md-2">
             <labal class="form-label">Identificação</labal>
-            <input type="text" asp-for="Id" class="form-control" disabled />
+            <input type="text" asp-for="IdArquivo" class="form-control" disabled />
         </div>
         <div class="col-md-2">
             <labal class="form-label">Data de criação</labal>
-            <input type="text" asp-for="dataCadastro" class="form-control" disabled />
+            <input type="text" asp-for="arquivoDataCadastro" class="form-control" disabled />
         </div>
         <div class="col-md-2">
             <labal class="form-label">Ultima alteração</labal>
-            <input type="text" asp-for="dataAlteracao" class="form-control" disabled />
+            <input type="text" asp-for="arquivoDataAlteracao" class="form-control" disabled />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
             <labal class="form-label">Nome do projeto</labal>
-            <input type="text" asp-for="Nome" class="form-control">
-            @Html.ValidationMessageFor(x => x.Nome)
+            <input type="text" asp-for="arquivoNome" class="form-control">
+            @Html.ValidationMessageFor(x => x.arquivoNome)
         </div>
         <div class="col-md-6">
             <labal class="form-label">Nome empresa</labal>
-            <input type="text" asp-for="Empresa" class="form-control">
-            @Html.ValidationMessageFor(x => x.Empresa)
+            <input type="text" asp-for="arquivoEmpresa" class="form-control">
+            @Html.ValidationMessageFor(x => x.arquivoEmpresa)
         </div>
         <div class="col-md-6">
             <labal class="form-label">Localidade</labal>
-            <input type="text" asp-for="Localidade" class="form-control">
-            @Html.ValidationMessageFor(x => x.Localidade)
+            <input type="text" asp-for="arquivoLocalidade" class="form-control">
+            @Html.ValidationMessageFor(x => x.arquivoLocalidade)
         </div>
         <div class="col-md-6">
             <labal class="form-label">Numero caderno</labal>
-            <input type="text" asp-for="numeroCaderno" class="form-control">
-            @Html.ValidationMessageFor(x => x.numeroCaderno)
+            <input type="text" asp-for="arquivoCaderno" class="form-control">
+            @Html.ValidationMessageFor(x => x.arquivoCaderno)
         </div>
     </div>
     <br />

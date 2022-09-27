@@ -15,23 +15,23 @@
     <div class="row">
         <div class="col-md-6">
             <labal class="form-label">Nome completo</labal>
-            <input type="text" asp-for="Nome" class="form-control">
-            @Html.ValidationMessageFor(x => x.Nome)
+            <input type="text" asp-for="engenheiroNome" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroNome)
         </div>
         <div class="col-md-6">
             <labal class="form-label">N° CPF</labal>
-            <input type="text" data-mask="000.000.000-00" asp-for="CPF" class="form-control" maxlength="14">
-            @Html.ValidationMessageFor(x => x.CPF)
+            <input type="text" data-mask="000.000.000-00" asp-for="engenheiroCPF" class="form-control" maxlength="14">
+            @Html.ValidationMessageFor(x => x.engenheiroCPF)
         </div>
         <div class="col-md-6">
             <labal class="form-label">N° CREA</labal>
-            <input type="text" asp-for="CREA" class="form-control">
-            @Html.ValidationMessageFor(x => x.CREA)
+            <input type="text" asp-for="engenheiroCREA" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroCREA)
         </div>
         <div class="col-md-6">
             <labal class="form-label">E-mail</labal>
-            <input type="text" asp-for="Email" class="form-control">
-            @Html.ValidationMessageFor(x => x.Email)
+            <input type="text" asp-for="engenheiroEmail" class="form-control">
+            @Html.ValidationMessageFor(x => x.engenheiroEmail)
         </div>
     </div>
     <br />

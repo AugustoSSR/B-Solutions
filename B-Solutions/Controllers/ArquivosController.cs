@@ -42,17 +42,17 @@ namespace B_Solutions.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = " Projeto apagado com sucesso";
+                    TempData["MensagemSucesso"] = "Seu arquivo foi apagado com sucesso";
                 }
                 else
                 {
-                    TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente";
+                    TempData["MensagemErro"] = "Não foi possivel apagar seu arquivo, tente novamente ou chame um administrador";
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel excluir seu arquivo, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -70,14 +70,14 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _arquivoRepositorio.Adicionar(arquivos);
-                    TempData["MensagemSucesso"] = " Projeto cadastrado com sucesso";
+                    TempData["MensagemSucesso"] = "Seu arquivo foi adicionado com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(arquivos);
             }
             catch (System.Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel adicionar seu arquivo, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -90,7 +90,7 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _arquivoRepositorio.Atualizar(arquivos);
-                    TempData["MensagemSucesso"] = " Projeto alterado com sucesso";
+                    TempData["MensagemSucesso"] = "Seu arquivo foi editado com sucesso";
                     return RedirectToAction("Index");
 
                 }
@@ -98,7 +98,7 @@ namespace B_Solutions.Controllers
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel editar o seu arquivo, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }

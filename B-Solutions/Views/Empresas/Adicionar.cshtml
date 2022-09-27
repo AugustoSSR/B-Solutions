@@ -3,80 +3,87 @@
     ViewData["Title"] = "Adicionar empresa";
 }
 
-<div class="text-center">
+<form asp-controller="Empresas" asp-action="Adicionar" method="post" class="form-control row g-3">
+    <div class="text-center">
 
-    <h1>Formulario de cadastro de empresas.</h1>
-    <p>Preencha todos os campos obrigatorios para inserir uma empresa.</p>
-    <br />
-</div>
+        <h1>Formulario de cadastro de empresas.</h1>
+        <p>Preencha todos os campos obrigatorios para inserir uma empresa.</p>
+    </div>
 
-<form asp-controller="Empresas" asp-action="Adicionar" method="post" class="row g-3">
+    <div class="row g-5">
 
-    <div class="row">
-        <div class="col-md-6">
-            <labal class="form-label">Nome da empresa</labal>
-            <input type="text" asp-for="Nome" class="form-control">
-            @Html.ValidationMessageFor(x => x.Nome)
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-secondary">Informações</span>
+                <span class="badge bg-success rounded-pill">CADASTRO</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Responsável Comercial</h6>
+                        <small class="text-muted">@Model.empresaComercialCargo</small>
+                    </div>
+                    <span class="text-muted">@Model.empresaComercialNome</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Responsável Empresa</h6>
+                        <small class="text-muted">@Model.empresaResponsavelCargo</small>
+                    </div>
+                    <span class="text-muted">@Model.empresaResponsavelNome</span>
+                </li>
+                <br />
+                <a class="btn btn-success" asp-controller="Usuarios" asp-action="Index" role="button"><i class="bi bi-back"></i> &nbsp;Adicionais</a>
+            </ul>
         </div>
-        <div class="col-md-6">
-            <labal class="form-label">CNPJ</labal>
-            <input type="text" name="cnpj" data-mask="00.000.000/0000-00" asp-for="CNPJ" class="form-control" maxlength="18">
-            @Html.ValidationMessageFor(x => x.CNPJ)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Nome Fántasia</labal>
-            <input type="text" asp-for="NomeFantasia" class="form-control">
-            @Html.ValidationMessageFor(x => x.NomeFantasia)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Razão Sócial</labal>
-            <input type="text" asp-for="Razao" class="form-control">
-            @Html.ValidationMessageFor(x => x.Razao)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Telefone</labal>
-            <input type="text" data-mask="(00) 0000-0000" asp-for="Telefone" class="form-control" maxlength="15">
-            @Html.ValidationMessageFor(x => x.Telefone)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">CEP</labal>
-            <input type="text" data-mask="00.000-000" asp-for="Cep" class="form-control" maxlength="10">
-            @Html.ValidationMessageFor(x => x.Cep)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Rua</labal>
-            <input type="text" asp-for="Rua" class="form-control">
-            @Html.ValidationMessageFor(x => x.Rua)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Bairro</labal>
-            <input type="text" asp-for="Bairro" class="form-control">
-            @Html.ValidationMessageFor(x => x.Bairro)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Estado</labal>
-            <input type="text" asp-for="Estado" class="form-control">
-            @Html.ValidationMessageFor(x => x.Estado)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Cidade</labal>
-            <input type="text" asp-for="Cidade" class="form-control">
-            @Html.ValidationMessageFor(x => x.Cidade)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">Numero</labal>
-            <input type="text" asp-for="Numero" class="form-control">
-            @Html.ValidationMessageFor(x => x.Numero)
-        </div>
-        <div class="col-md-6">
-            <labal class="form-label">E-mail</labal>
-            <input type="text" asp-for="Email" class="form-control">
-            @Html.ValidationMessageFor(x => x.Email)
+        <div class="col-md-7 col-lg-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    <labal class="form-label">Razão Sócial</labal>
+                    <input type="text" asp-for="empresaRazao" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <labal class="form-label">Nome Fántasia</labal>
+                    <input type="text" asp-for="empresaFantasia" class="form-control">
+                </div>
+                <div class="col-sm-12">
+                    <labal class="form-label">CNPJ</labal>
+                    <input type="text" name="cnpj" data-mask="00.000.000/0000-00" asp-for="empresaCNPJ" class="form-control" maxlength="18">
+                </div>
+
+                <h1 class="text-center">
+                    -----------------------------------------
+                </h1>
+
+                <div class="col-md-4">
+                    <labal class="form-label">CEP</labal>
+                    <input type="text" data-mask="00.000-000" asp-for="empresaRuaCep" class="form-control" maxlength="10">
+                </div>
+                <div class="col-md-8">
+                    <labal class="form-label">Rua</labal>
+                    <input type="text" asp-for="empresaRua" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <labal class="form-label">Bairro</labal>
+                    <input type="text" asp-for="empresaRuaBairro" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <labal class="form-label">Estado</labal>
+                    <input type="text" asp-for="empresaRuaEstado" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <labal class="form-label">Cidade</labal>
+                    <input type="text" asp-for="empresaRuaCidade" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <labal class="form-label">Numero</labal>
+                    <input type="text" asp-for="empresaRuaNumero" class="form-control">
+                </div>
+
+            </div>
         </div>
     </div>
     <br />
-    <div class="d-grid gap-2">
-        <a class="btn btn-danger" asp-controller="Empresas" asp-action="Index" role="button">Voltar</a>
-        <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
-    </div>
+    <a class="btn btn-danger" asp-controller="Empresas" asp-action="Index" role="button"><i class="bi bi-back"></i> &nbsp;Voltar</a>
+    <button type="submit" class="btn btn-block btn-success"><i class="bi bi-check-lg"></i> &nbsp;Atualizar</button>
 </form>

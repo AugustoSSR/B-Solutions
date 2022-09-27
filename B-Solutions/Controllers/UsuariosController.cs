@@ -93,7 +93,7 @@ namespace B_Solutions.Controllers
                 {
                     usuario = new UsuariosModel()
                     {
-                        usuarioId = usuarioSemSenha.usuarioSemSenhaId,
+                        IdUsuario = usuarioSemSenha.idUsuarioSemSenha,
                         usuarioNome = usuarioSemSenha.usuarioSemSenhaNome,
                         usuarioLogin = usuarioSemSenha.usuarioSemSenhaLogin,
                         usuarioEmail = usuarioSemSenha.usuarioSemSenhaEmail,

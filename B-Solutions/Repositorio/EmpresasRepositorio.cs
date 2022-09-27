@@ -14,7 +14,7 @@ namespace B_Solutions.Repositorio
 
         public EmpresasModel ListarPorID(int id)
         {
-            return _bancoContext.Empresas.FirstOrDefault(x => x.empresaId == id);
+            return _bancoContext.Empresas.FirstOrDefault(x => x.IdEmpresa == id);
         }
         public List<EmpresasModel> GetEmpresas()
         {
@@ -32,20 +32,33 @@ namespace B_Solutions.Repositorio
 
         public EmpresasModel Atualizar(EmpresasModel empresas)
         {
-            EmpresasModel empresasDB = ListarPorID(empresas.Id);
+            EmpresasModel empresasDB = ListarPorID(empresas.IdEmpresa);
             if (empresasDB == null) throw new System.Exception("Houve um erro na atualização do empresas.");
             empresasDB.empresaRazao = empresas.empresaRazao;
             empresasDB.empresaRuaCidade = empresas.empresaRuaCidade;
             empresasDB.empresaCNPJ = empresas.empresaCNPJ;
-            empresasDB.NomeFantasia = empresas.NomeFantasia;
-            empresasDB.Razao = empresas.Razao;
-            empresasDB.Telefone = empresas.Telefone;
-            empresasDB.Rua = empresas.Rua;
-            empresasDB.Numero = empresas.Numero;
-            empresasDB.Bairro = empresas.Bairro;
-            empresasDB.Cep = empresas.Cep;
-            empresasDB.Email = empresas.Email;
-            empresasDB.dataAlteracao = DateTime.Now;
+            empresasDB.empresaFantasia = empresas.empresaFantasia;
+            empresasDB.empresaTelefone = empresas.empresaTelefone;
+            empresasDB.empresaRua = empresas.empresaRua;
+            empresasDB.empresaRuaNumero = empresas.empresaRuaNumero;
+            empresasDB.empresaRuaBairro = empresas.empresaRuaBairro;
+            empresasDB.empresaRuaCep = empresas.empresaRuaCep;
+            empresasDB.empresaRuaEstado = empresas.empresaRuaEstado;
+            // dados de comercial e responsavel da empresa
+            empresasDB.empresaComercialCargo = empresas.empresaComercialCargo;
+            empresasDB.empresaComercialCPF = empresas.empresaComercialCPF;
+            empresasDB.empresaComercialEmail = empresas.empresaComercialEmail;
+            empresasDB.empresaComercialNome = empresas.empresaComercialNome;
+            empresasDB.empresaComercialRG = empresas.empresaComercialRG;
+
+            empresasDB.empresaResponsavelCargo = empresas.empresaResponsavelCargo;
+            empresasDB.empresaResponsavelCPF = empresas.empresaResponsavelCPF;
+            empresasDB.empresaResponsavelEmail = empresas.empresaResponsavelEmail;
+            empresasDB.empresaResponsavelNome = empresas.empresaResponsavelNome;
+            empresasDB.empresaResponsavelRG = empresas.empresaResponsavelRG;
+
+            // data de alteração da empresa.
+            empresasDB.empresaDataAlteracao = DateTime.Now;
 
             _bancoContext.Empresas.Update(empresasDB);
             _bancoContext.SaveChanges();

@@ -13,7 +13,7 @@ namespace B_Solutions.Repositorio
         }
         public TipoProjetoModel ListarPorID(int id)
         {
-            return _bancoContext.Tipos.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Tipos.FirstOrDefault(x => x.IdProjetoTipo == id);
         }
         public List<TipoProjetoModel> GetTipos()
         {
@@ -23,7 +23,7 @@ namespace B_Solutions.Repositorio
         public TipoProjetoModel Adicionar(TipoProjetoModel tipos)
         {
             // Inserção do banco de dados.
-            tipos.dataCadastro = DateTime.Now;
+            tipos.tipoProjetoDataCadastro = DateTime.Now;
             _bancoContext.Tipos.Add(tipos);
             _bancoContext.SaveChanges();
             return tipos;
@@ -31,10 +31,10 @@ namespace B_Solutions.Repositorio
 
         public TipoProjetoModel Atualizar(TipoProjetoModel tipos)
         {
-            TipoProjetoModel tiposDB = ListarPorID(tipos.Id);
-            if (tiposDB == null) throw new System.Exception("Houve um erro na atualização do Arquivos.");
-            tiposDB.Nome = tipos.Nome;
-            tiposDB.dataAlteracao = DateTime.Now;
+            TipoProjetoModel tiposDB = ListarPorID(tipos.IdProjetoTipo);
+            if (tiposDB == null) throw new System.Exception("Houve um erro ao tentar atualizar o tipo do projeto, tente novamente.");
+            tiposDB.tipoProjetoNome = tipos.tipoProjetoNome;
+            tiposDB.tipoProjetoDataAlteracao = DateTime.Now;
 
             _bancoContext.Tipos.Update(tiposDB);
             _bancoContext.SaveChanges();
@@ -46,7 +46,7 @@ namespace B_Solutions.Repositorio
         {
             TipoProjetoModel tiposDB = ListarPorID(id);
 
-            if (tiposDB == null) throw new System.Exception("Houve um erro na deleção do Arquivos.");
+            if (tiposDB == null) throw new System.Exception("Houve um erro ao tentar apagar o tipo do projeto, tente novamente.");
 
             _bancoContext.Tipos.Remove(tiposDB);
             _bancoContext.SaveChanges();

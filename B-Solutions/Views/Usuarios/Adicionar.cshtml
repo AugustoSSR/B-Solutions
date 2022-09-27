@@ -16,38 +16,38 @@
     <div class="row">
         <div class="col mb-3">
             <labal class="form-label">Nome de usuario</labal>
-            <input type="text" asp-for="Login" class="form-control" placeholder="Login" aria-label="Login">
-            @Html.ValidationMessageFor(x => x.Login)
+            <input type="text" asp-for="usuarioLogin" class="form-control" placeholder="Login" aria-label="Login">
+            @Html.ValidationMessageFor(x => x.usuarioLogin)
         </div>
         <div class="col mb-3">
             <labal class="form-label">Senha</labal>
-            <input type="password" asp-for="Senha" class="form-control" placeholder="Password" aria-label="Password">
-            @Html.ValidationMessageFor(x => x.Senha)
+            <input type="password" asp-for="usuarioSenha" class="form-control" placeholder="Password" aria-label="Password">
+            @Html.ValidationMessageFor(x => x.usuarioSenha)
         </div>
         <div class="col mb-3 col-lg-2">
             <labal class="form-label">Cargo</labal>
-            <select class="form-select" asp-for="Perfil">
+            <select class="form-select" asp-for="usuarioCargo">
                 <option value="">Selecione</option>
                 <option value="@PerfilEnum.ADMINISTRADOR">Administrador</option>
                 <option value="@PerfilEnum.PROJETISTA">Projetista</option>
                 <option value="@PerfilEnum.CLIENTE">Cliente</option>
             </select>
-            @Html.ValidationMessageFor(x => x.Perfil)
+            @Html.ValidationMessageFor(x => x.usuarioCargo)
         </div>
         <div class="col mb-3">
             <labal class="form-label">Nome completo</labal>
-            <input type="text" asp-for="Nome" class="form-control" placeholder="Nome completo" aria-label="Nome completo">
-            @Html.ValidationMessageFor(x => x.Nome)
+            <input type="text" asp-for="usuarioNome" class="form-control" placeholder="Nome completo" aria-label="Nome completo">
+            @Html.ValidationMessageFor(x => x.usuarioNome)
         </div>
         <div class="col mb-3 col-lg-3">
             <labal class="form-label">E-mail</labal>
-            <input type="text" asp-for="Email" class="form-control" placeholder="Email" aria-label="Email">
-            @Html.ValidationMessageFor(x => x.Email)
+            <input type="text" asp-for="usuarioEmail" class="form-control" placeholder="Email" aria-label="Email">
+            @Html.ValidationMessageFor(x => x.usuarioEmail)
         </div>
         <div class="col mb-3">
             <labal class="form-label">Identificação</labal>
-            <input type="text" asp-for="Telefone" class="form-control" placeholder="Telefone" aria-label="Telefone">
-            @Html.ValidationMessageFor(x => x.Telefone)
+            <input type="text" asp-for="usuarioTelefone" class="form-control" placeholder="Telefone" aria-label="Telefone">
+            @Html.ValidationMessageFor(x => x.usuarioTelefone)
         </div>
     </div>
     <br />

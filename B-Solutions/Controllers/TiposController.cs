@@ -1,5 +1,4 @@
 ﻿using B_Solutions.Filters;
-using B_Solutions.Helper;
 using B_Solutions.Models;
 using B_Solutions.Repositorio.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -43,17 +42,17 @@ namespace B_Solutions.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = " Projeto apagado com sucesso";
+                    TempData["MensagemSucesso"] = "Tipo de projeto apagado com sucesso";
                 }
                 else
                 {
-                    TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente";
+                    TempData["MensagemErro"] = "Seu tipo de projeto possui algum erro, tente novamente ou contate o administrador";
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu tipo de projeto possui algum erro, tente novamente ou verifique o erro a seguir: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -66,14 +65,14 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _tiposRepositorio.Adicionar(tipos);
-                    TempData["MensagemSucesso"] = " Projeto cadastrado com sucesso";
+                    TempData["MensagemSucesso"] = "Tipo de projeto adicionado com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(tipos);
             }
             catch (System.Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu tipo de projeto possui algum erro, tente novamente ou verifique o erro a seguir: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -86,7 +85,7 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _tiposRepositorio.Atualizar(tipos);
-                    TempData["MensagemSucesso"] = " Projeto alterado com sucesso";
+                    TempData["MensagemSucesso"] = "Tipo de projeto editado com sucesso";
                     return RedirectToAction("Index");
 
                 }
@@ -94,7 +93,7 @@ namespace B_Solutions.Controllers
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu tipo de projeto possui algum erro, tente novamente ou verifique o erro a seguir: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }

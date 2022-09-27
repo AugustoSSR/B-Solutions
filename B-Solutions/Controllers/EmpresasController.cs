@@ -46,17 +46,17 @@ namespace B_Solutions.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = " Projeto apagado com sucesso";
+                    TempData["MensagemSucesso"] = "A empresa foi apagada com sucesso";
                 }
                 else
                 {
-                    TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente";
+                    TempData["MensagemErro"] = "A empresa não pode ser excluida por que possui um erro";
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel apagar a empresa, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -74,14 +74,14 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _empresasRepositorio.Adicionar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto cadastrado com sucesso";
+                    TempData["MensagemSucesso"] = "A empresa foi adicionada com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(projeto);
             }
             catch (System.Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"A empresa não pode ser adicionada, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -94,7 +94,7 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _empresasRepositorio.Atualizar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto alterado com sucesso";
+                    TempData["MensagemSucesso"] = "A empresa foi editada com sucesso";
                     return RedirectToAction("Index");
 
                 }
@@ -102,14 +102,9 @@ namespace B_Solutions.Controllers
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel editar a empresa, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-        }
-
-        public static implicit operator EmpresasController(EmpresasRepositorio v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

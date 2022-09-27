@@ -13,45 +13,45 @@ namespace B_Solutions.Repositorio
         }
         public EngenheirosModel ListarPorID(int id)
         {
-            return _bancoContext.Engenheiros.FirstOrDefault(x => x.Id == id);
+            return _bancoContext.Engenheiros.FirstOrDefault(x => x.IdEngenheiro == id);
         }
         public List<EngenheirosModel> GetEngenheiros()
         {
             // listagem de Engenheiross
             return _bancoContext.Engenheiros.ToList();
         }
-        public EngenheirosModel Adicionar(EngenheirosModel Engenheiros)
+        public EngenheirosModel Adicionar(EngenheirosModel engenheiros)
         {
             // Inserção do banco de dados.
-            Engenheiros.dataCadastro = DateTime.Now;
-            _bancoContext.Engenheiros.Add(Engenheiros);
+            engenheiros.engenheiroDataCadastro = DateTime.Now;
+            _bancoContext.Engenheiros.Add(engenheiros);
             _bancoContext.SaveChanges();
-            return Engenheiros;
+            return engenheiros;
         }
 
-        public EngenheirosModel Atualizar(EngenheirosModel Engenheiros)
+        public EngenheirosModel Atualizar(EngenheirosModel engenheiros)
         {
-            EngenheirosModel EngenheirosDB = ListarPorID(Engenheiros.Id);
-            if (EngenheirosDB == null) throw new System.Exception("Houve um erro na atualização do Engenheiros.");
-            EngenheirosDB.Nome = Engenheiros.Nome;
-            EngenheirosDB.CPF = Engenheiros.CPF;
-            EngenheirosDB.CREA = Engenheiros.CREA;
-            EngenheirosDB.Email = Engenheiros.Email;
-            EngenheirosDB.dataAlteracao = DateTime.Now;
+            EngenheirosModel engenheirosDB = ListarPorID(engenheiros.IdEngenheiro);
+            if (engenheirosDB == null) throw new System.Exception("Houve um erro na atualização do Engenheiros.");
+            engenheirosDB.engenheiroNome = engenheiros.engenheiroNome;
+            engenheirosDB.engenheiroCPF = engenheiros.engenheiroCPF;
+            engenheirosDB.engenheiroCREA = engenheiros.engenheiroCREA;
+            engenheirosDB.engenheiroEmail = engenheiros.engenheiroEmail;
+            engenheirosDB.engenheiroDataAlteracao = DateTime.Now;
 
-            _bancoContext.Engenheiros.Update(EngenheirosDB);
+            _bancoContext.Engenheiros.Update(engenheirosDB);
             _bancoContext.SaveChanges();
 
-            return EngenheirosDB;
+            return engenheirosDB;
         }
 
         public bool Apagar(int id)
         {
-            EngenheirosModel EngenheirosDB = ListarPorID(id);
+            EngenheirosModel engenheirosDB = ListarPorID(id);
 
-            if (EngenheirosDB == null) throw new System.Exception("Houve um erro na deleção do Engenheiros.");
+            if (engenheirosDB == null) throw new System.Exception("Houve um erro na deleção do Engenheiros.");
 
-            _bancoContext.Engenheiros.Remove(EngenheirosDB);
+            _bancoContext.Engenheiros.Remove(engenheirosDB);
             _bancoContext.SaveChanges();
 
             return true;

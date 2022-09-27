@@ -1,7 +1,7 @@
-﻿@using B_Solutions.Enums
-@model TipoProjetoModel;
+﻿@model TipoProjetoModel
 @{
     ViewData["Title"] = "Editar usuario";
+    Layout = "_Layout";
 }
 
 <div class="text-center">
@@ -14,15 +14,12 @@
     <br />
     <br />
 </div>
-
 <form asp-controller="Tipos" asp-action="Editar" method="post">
-
     <div class="row g-5">
-
         <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-secondary">Informações</span>
-                <span class="badge bg-secondary rounded-pill">ID: @Model.Id</span>
+                <span class="badge bg-secondary rounded-pill">ID: @Model.IdProjetoTipo</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -30,23 +27,23 @@
                         <h6 class="my-0">Data de cadastro</h6>
                         <small class="text-muted">B Solutions</small>
                     </div>
-                    <span class="text-muted">@Model.dataCadastro</span>
+                    <span class="text-muted">@Model.tipoProjetoDataCadastro</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
                         <h6 class="my-0">Data de alteração</h6>
                         <small class="text-muted">B Solutions</small>
                     </div>
-                    <span class="text-muted">@Model.dataAlteracao</span>
+                    <span class="text-muted">@Model.tipoProjetoDataAlteracao</span>
                 </li>
             </ul>
         </div>
         <div class="col-md-7 col-lg-8">
             <div class="row">
-                <div class="col mb-3">
+                <div class="col-sm-12">
                     <labal class="form-label">Nome</labal>
-                    <input type="text" asp-for="Nome" class="form-control">
-                    @Html.ValidationMessageFor(x => x.Nome)
+                    <input type="text" asp-for="tipoProjetoNome" class="form-control">
+                    @Html.ValidationMessageFor(x => x.tipoProjetoNome)
                 </div>
             </div>
         </div>
@@ -54,6 +51,4 @@
     <br />
     <a class="btn btn-danger" asp-controller="Tipos" asp-action="Index" role="button"><i class="bi bi-back"></i> &nbsp;Voltar</a>
     <button type="submit" class="btn btn-block btn-success"><i class="bi bi-check-lg"></i> &nbsp;Atualizar</button>
-    <div class="d-grid gap-1">
-    </div>
 </form>

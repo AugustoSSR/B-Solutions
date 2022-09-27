@@ -8,8 +8,8 @@
 
 <div class="text-center">
     <h2>Você deseja deletar este projeto ?</h2>
-    <h3>@Model.Nome</h3>
+    <h3>@Model.arquivoNome</h3>
 
-    <a class="btn btn-success" asp-controller="Arquivos" asp-action="Apagar" asp-route-id="@Model.Id" role="button">Confirmar</a>
+    <a class="btn btn-success" asp-controller="Arquivos" asp-action="Apagar" asp-route-id="@Model.IdArquivo" role="button">Confirmar</a>
     <a class="btn btn-danger" asp-controller="Arquivos" asp-action="Index" role="button">Cancelar</a>
 </div>

@@ -43,24 +43,19 @@ namespace B_Solutions.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = " Projeto apagado com sucesso";
+                    TempData["MensagemSucesso"] = "Engenheiro deletado com sucesso";
                 }
                 else
                 {
-                    TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente";
+                    TempData["MensagemErro"] = "Não foi possivel apagar o engenheiro selecionado";
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel apagar o engenheiro selecionado, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-        }
-
-        public IActionResult Copiar()
-        {
-            return View();
         }
 
         [HttpPost]
@@ -71,14 +66,14 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _engenheirosRepositorio.Adicionar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto cadastrado com sucesso";
+                    TempData["MensagemSucesso"] = "Engenheiro adicionado com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(projeto);
             }
             catch (System.Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel adicionar o engenheiro, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -91,7 +86,7 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _engenheirosRepositorio.Atualizar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto alterado com sucesso";
+                    TempData["MensagemSucesso"] = "Engenheiro editado com sucesso";
                     return RedirectToAction("Index");
 
                 }
@@ -99,7 +94,7 @@ namespace B_Solutions.Controllers
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Não foi possivel editar o engenheiro, tente novamente. Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }

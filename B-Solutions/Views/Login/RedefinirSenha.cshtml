@@ -30,14 +30,14 @@
             <h1 class="h3 mb-3 fw-normal">Redefinir senha.</h1>
 
             <div class="form-floating">
-                <input type="text" asp-for="Login" class="form-control" id="login" placeholder="Username">
+                <input type="text" asp-for="redefinirLogin" class="form-control" id="login" placeholder="Username">
                 <label for="login">Username</label>
-                @Html.ValidationMessageFor(x => x.Login)
+                @Html.ValidationMessageFor(x => x.redefinirLogin)
             </div>
             <div class="form-floating">
-                <input type="text" asp-for="Email" class="form-control" id="email" placeholder="E-mail">
+                <input type="text" asp-for="redefinirEmail" class="form-control" id="email" placeholder="E-mail">
                 <label for="email">E-mail</label>
-                @Html.ValidationMessageFor(x => x.Email)
+                @Html.ValidationMessageFor(x => x.redefinirEmail)
             </div>
             <br />
             <button class="w-100 btn btn-lg btn-primary" type="submit">Redefinir</button>

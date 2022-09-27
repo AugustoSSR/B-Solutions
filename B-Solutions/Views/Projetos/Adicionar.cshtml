@@ -16,7 +16,7 @@
     <div class="row g-3">
         <div class="col-md-4">
             <labal class="form-label">Concessionaria</labal>
-            <select class="form-select" asp-for="Concessionaria">
+            <select class="form-select" asp-for="projetoConcessionaria">
                 <option value="">Selecione</option>
                 <option value="@ConcessionariasEnums.CEEE">CEEE</option>
                 <option value="@ConcessionariasEnums.RGE">RGE</option>
@@ -28,11 +28,11 @@
                 <option value="@ConcessionariasEnums.DAER">DAER</option>
                 <option value="@ConcessionariasEnums.DNIT">DNIT</option>
             </select>
-            @Html.ValidationMessageFor(x => x.Concessionaria)
+            @Html.ValidationMessageFor(x => x.projetoConcessionaria)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Tipo de projeto</labal>
-            <select class="form-select" asp-for="Tipo">
+            <select class="form-select" asp-for="projetoTipo">
                 <option value="">Selecione</option>
                 <option value="@TiposEnum.Compartilhamento">Compartilhamento</option>
                 <option value="@TiposEnum.AnteProjeto">Ante Projeto</option>
@@ -41,11 +41,11 @@
                 <option value="@TiposEnum.Travessia">Travessia</option>
                 <option value="@TiposEnum.Outros">Outros</option>
             </select>
-            @Html.ValidationMessageFor(x => x.Tipo)
+            @Html.ValidationMessageFor(x => x.projetoTipo)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Status do projeto</labal>
-            <select class="form-select" asp-for="Situacao">
+            <select class="form-select" asp-for="projetoStatus">
                 <option value="">Selecione</option>
                 <option value="@SituacaoEnum.Aprovado">Aprovado</option>
                 <option value="@SituacaoEnum.Reprovado">Reprovado</option>
@@ -53,42 +53,42 @@
                 <option value="@SituacaoEnum.EmAnalise">Em Analise</option>
                 <option value="@SituacaoEnum.SemStatus">Sem Status</option>
             </select>
-            @Html.ValidationMessageFor(x => x.Situacao)
+            @Html.ValidationMessageFor(x => x.projetoStatus)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Empresa</labal>
-            <input type="text" asp-for="Empresa" class="form-control">
-            @Html.ValidationMessageFor(x => x.Empresa)
+            <input type="text" asp-for="projetoEmpresa" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoEmpresa)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Protocolo</labal>
-            <input type="text" asp-for="Protocolo" class="form-control">
-            @Html.ValidationMessageFor(x => x.Protocolo)
+            <input type="text" asp-for="projetoProtocolo" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoProtocolo)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Nome do projeto</labal>
-            <input type="text" asp-for="Nome" class="form-control">
-            @Html.ValidationMessageFor(x => x.Nome)
+            <input type="text" asp-for="projetoNome" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoNome)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Localidade</labal>
-            <input type="text" asp-for="Localidade" class="form-control">
-            @Html.ValidationMessageFor(x => x.Localidade)
+            <input type="text" asp-for="projetoLocalidade" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoLocalidade)
         </div>
         <div class="col-md-4">
             <labal class="form-label">N° ART</labal>
-            <input type="text" asp-for="ART" class="form-control">
-            @Html.ValidationMessageFor(x => x.ART)
+            <input type="text" asp-for="projetoART" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoART)
         </div>
         <div class="col-md-4">
             <labal class="form-label">Engenheiro</labal>
-            <input type="text" asp-for="Engenheiros" class="form-control">
-            @Html.ValidationMessageFor(x => x.Engenheiros)
+            <input type="text" asp-for="projetoEngenheiro" class="form-control">
+            @Html.ValidationMessageFor(x => x.projetoEngenheiro)
         </div>
         <div class="col-md-12">
             <labal class="form-label">Campo de anotação</labal>
-            <textarea class="form-control" rows="6" asp-for="Observacao"></textarea>
-            @Html.ValidationMessageFor(x => x.Observacao)
+            <textarea class="form-control" rows="6" asp-for="projetoObservacao"></textarea>
+            @Html.ValidationMessageFor(x => x.projetoObservacao)
         </div>
     </div>
     <br />

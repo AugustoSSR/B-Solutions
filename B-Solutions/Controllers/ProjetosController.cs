@@ -13,11 +13,9 @@ namespace B_Solutions.Controllers
     public class ProjetosController : Controller
     {
         private readonly IProjetosRepositorio _projetosRepositorio;
-        private readonly NorthwinService _northwinService;
-        public ProjetosController(IProjetosRepositorio projetosRepositorio, NorthwinService northwinService)
+        public ProjetosController(IProjetosRepositorio projetosRepositorio)
         {
             _projetosRepositorio = projetosRepositorio;
-            _northwinService = northwinService; 
         }
         public IActionResult Index()
         {
@@ -27,11 +25,7 @@ namespace B_Solutions.Controllers
 
         public IActionResult Adicionar()
         {
-            ProjetosList dropdownList = new ProjetosList
-            {
-                listTipos = _northwinService.getTipos()
-            };
-            return View(dropdownList);
+            return View();
         }
         public IActionResult Editar(int id)
         {
@@ -52,17 +46,17 @@ namespace B_Solutions.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = " Projeto apagado com sucesso";
+                    TempData["MensagemSucesso"] = "Projeto apagado com sucesso";
                 } 
                 else
                 {
-                    TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente";
+                    TempData["MensagemErro"] = $"Seu projeto possui algum erro, tente novamente";
                 }
                 return RedirectToAction("Index");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu projeto possui algum erro, tente novamente {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -80,14 +74,14 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _projetosRepositorio.Adicionar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto cadastrado com sucesso";
+                    TempData["MensagemSucesso"] = "Projeto cadastrado com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(projeto);
             }
             catch (System.Exception erro)
             {
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu projeto possui algum erro, tente novamente {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -100,7 +94,7 @@ namespace B_Solutions.Controllers
                 if (ModelState.IsValid)
                 {
                     _projetosRepositorio.Atualizar(projeto);
-                    TempData["MensagemSucesso"] = " Projeto alterado com sucesso";
+                    TempData["MensagemSucesso"] = "Projeto alterado com sucesso";
                     return RedirectToAction("Index");
 
                 }
@@ -108,7 +102,7 @@ namespace B_Solutions.Controllers
             }
             catch (Exception erro)
             { 
-                TempData["MensagemErro"] = $" Seu projeto possui algum erro, tente novamente {erro.Message}";
+                TempData["MensagemErro"] = $"Seu projeto possui algum erro, tente novamente {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
